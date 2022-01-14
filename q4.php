@@ -4,7 +4,12 @@
 
 <p id="p2">Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
 
-<p id="p3">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia <a href=https://www.bigcabal.com> odio sem nec elit. Sed posuere </a> consectetur est at <abbr name="lobortis">lbrt</abbr>. Maecenas faucibus mollis interdum. Aenean lacinia <img src=test.jpeg with=300 height=auto> bibendum nulla sed consectetur. Praesent <code><b>commodo cursus magna, vel scelerisque nisl consectetur et.</code></b></p>
+<p id="p3">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia
+    <a href=https://www.bigcabal.com> odio sem nec elit. Sed posuere </a> consectetur est at 
+    <abbr name="lobortis">lbrt</abbr>. Maecenas faucibus mollis interdum. Aenean lacinia 
+    <img src=test.jpeg with=300 height=auto> bibendum nulla sed consectetur. Praesent 
+    <code><b>commodo cursus magna, vel scelerisque nisl consectetur et.</b></code>
+</p>
 
 <div id="div1">
 
@@ -25,10 +30,20 @@
         paragraphs.forEach(element => {
             const newPara = document.createElement('p');
             document.getElementById('div1').appendChild(newPara).innerHTML = element;
+            newPara.setAttribute('id', 'divp')
         });
     }
     const newBtn = document.createElement('button');
     document.body.appendChild(newBtn).innerHTML = "Remove";
+    newBtn.setAttribute('onclick', 'removePara()');
+
+    // document.body.appendChild(newBtn).setAttribute('onclick', 'removePara');
+
+    function removePara() {
+        paragraphs.forEach(element => {
+            document.getElementById('divp').remove();
+        });
+    }
 </script>
 
 <?php include('footer.php') ?>
