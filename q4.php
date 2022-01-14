@@ -25,23 +25,31 @@
     const z = document.getElementById('p3').innerHTML;
 
     const paragraphs = [x, y, z];
+    const random = Math.floor(Math.random() * paragraphs.length);
+    
 
     function addPara() {
+        
         paragraphs.forEach(element => {
             const newPara = document.createElement('p');
+            const hr = document.createElement('hr');
             document.getElementById('div1').appendChild(newPara).innerHTML = element;
-            newPara.setAttribute('id', 'divp')
+            document.getElementById('div1').appendChild(hr);
+            newPara.setAttribute('id', 'divp');
+            hr.setAttribute('id', 'divhr')
         });
+        
     }
+    
+
     const newBtn = document.createElement('button');
     document.body.appendChild(newBtn).innerHTML = "Remove";
     newBtn.setAttribute('onclick', 'removePara()');
 
-    // document.body.appendChild(newBtn).setAttribute('onclick', 'removePara');
-
     function removePara() {
         paragraphs.forEach(element => {
             document.getElementById('divp').remove();
+            document.getElementById('divhr').remove();
         });
     }
 </script>
